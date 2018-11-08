@@ -1,38 +1,17 @@
 package hellocucumber;
 
-import cucumber.api.PendingException;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.When;
-import cucumber.api.java.en.Then;
+import cucumber.api.java8.En;
 
 import static org.junit.Assert.*;
 
-public class Stepdefs {
+public class Stepdefs implements En {
 
-    private String today;
-    private String actualAnswer;
+    private int budget = 0;
 
-    @Given("today is {string}")
-    public void today_is(String today) {
-        this.today = today;
-    }
-
-    @When("I ask whether it's Friday yet")
-    public void i_ask_whether_is_s_Friday_yet() {
-        this.actualAnswer = IsItFriday.isItFriday(today);
-    }
-
-    @Then("I should be told {string}")
-    public void i_should_be_told(String expectedAnswer) {
-        assertEquals(expectedAnswer, actualAnswer);
-    }
-}
-
-class IsItFriday {
-    static String isItFriday(String today) {
-        if (today.equals("Friday")) {
-            return "TGIF";
-        }
-        return "Nope";
+    public Stepdefs() {
+        Given("I have {int} in my wallet", (Integer money) -> budget = money);
+        When("I buy milk with {int}", (Integer price) -> budget -= price);
+        Then("I should have {int} in my wallet", (Integer finalBudget) ->
+                assertEquals(budget, finalBudget.intValue()));
     }
 }
