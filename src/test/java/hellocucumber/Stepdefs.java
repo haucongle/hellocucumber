@@ -2,7 +2,7 @@ package hellocucumber;
 
 import cucumber.api.java8.En;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Stepdefs implements En {
 
@@ -22,6 +22,16 @@ public class Stepdefs implements En {
                 this.actualAnswer = IsItFriday.isItFriday(today));
         Then("I should be told {string}", (String expectedAnswer) ->
                 assertEquals(expectedAnswer, actualAnswer));
+
+        Given("I have {int} cucumber(s) in my belly/stomach", (Integer num) -> {
+//            I have 42 {what} cucumbers in my belly
+            throw new cucumber.api.PendingException();
+        });
+
+        Given("I have {int} \\{what} cucumber(s) in my belly/stomach", (Integer num) -> {
+//            I have 42 {what} cucumbers in my belly
+            throw new cucumber.api.PendingException();
+        });
     }
 }
 
