@@ -1,0 +1,10 @@
+cucumberpro:
+  projectname: helloworld
+  token: 2823ed5778a4f16d0dd5e154835752eaaff
+  envmask: SECRET|KEY|TOKEN|PASSWORD|PWD
+  logging: INFO
+  logfile:
+  url: https://app.cucumber.pro/
+  connection:
+    ignoreerror: true
+    timeout: 5000
