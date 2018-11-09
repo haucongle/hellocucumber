@@ -1,26 +1,54 @@
-apply plugin: 'java'
-apply plugin: 'maven'
-
-group = 'hellocucumber'
-version = '1.0.0-SNAPSHOT'
-
-description = "Hello Cucumber for Java"
-
-sourceCompatibility = 11
-targetCompatibility = 11
-tasks.withType(JavaCompile) {
-	options.encoding = 'UTF-8'
-}
-
-
+apply plugin: 'java-library'
 
 repositories {
-     maven { url "http://repo.maven.apache.org/maven2" }
+    mavenCentral()
 }
+
+test {
+    // enable JUnit Platform (a.k.a. JUnit 5) support
+    useJUnitPlatform()
+
+    // set a system property for the test JVM(s)
+//    systemProperty 'some.prop', 'value'
+
+    // explicitly include or exclude tests
+//    include 'org/foo/**'
+//    exclude 'org/boo/**'
+
+    // show standard out and standard error of the test JVM(s) on the console
+    testLogging.showStandardStreams = true
+
+    // set heap size for the test JVM(s)
+//    minHeapSize = "128m"
+//    maxHeapSize = "512m"
+
+    // set JVM arguments for the test JVM(s)
+//    jvmArgs '-XX:MaxPermSize=256m'
+
+    // listen to events in the test execution lifecycle
+    beforeTest { descriptor ->
+        logger.lifecycle("Running test: " + descriptor)
+    }
+
+    // Fail the 'test' task on the first test failure
+    failFast = true
+
+    // listen to standard out and standard error of the test JVM(s)
+    onOutput { descriptor, event ->
+        logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message )
+    }
+}
+
 dependencies {
-    compile group: 'io.cucumber', name: 'cucumber-jvm', version:'4.2.0'
-    testCompile group: 'io.cucumber', name: 'pro-plugin', version:'2.1.1'
-    testCompile group: 'io.cucumber', name: 'cucumber-java8', version:'4.2.0'
-    testCompile group: 'io.cucumber', name: 'cucumber-junit', version:'4.2.0'
-    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version:'5.3.1'
+    implementation 'io.cucumber:cucumber-jvm:4.2.0'
+    testImplementation 'io.cucumber:pro-plugin:2.1.1'
+    testImplementation 'io.cucumber:cucumber-java8:4.2.0'
+    testImplementation 'io.cucumber:cucumber-junit:4.2.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    testImplementation 'org.junit.vintage:junit-vintage-engine:5.3.1'
+}
+
+wrapper {
+    gradleVersion = '4.10.2'
 }
