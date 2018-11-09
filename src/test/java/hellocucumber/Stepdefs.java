@@ -24,12 +24,10 @@ public class Stepdefs implements En {
                 assertEquals(expectedAnswer, actualAnswer));
 
         Given("I have {int} cucumber(s) in my belly/stomach", (Integer num) -> {
-//            I have 42 {what} cucumbers in my belly
             throw new cucumber.api.PendingException();
         });
 
         Given("I have {int} \\{what} cucumber(s) in my belly/stomach", (Integer num) -> {
-//            I have 42 {what} cucumbers in my belly
             throw new cucumber.api.PendingException();
         });
     }

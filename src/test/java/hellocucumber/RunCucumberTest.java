@@ -11,14 +11,13 @@ import org.junit.runner.RunWith;
         dryRun = true,
         strict = true,
         features = {
-                "src/test/resources/hellocucumber",
+//                "src/test/resources/hellocucumber",
 //                "src/test/resources/hellocucumber/is_it_friday_yet.feature",
 //                "src/test/resources/hellocucumber/shopping.feature",
-//                "src/test/resources/hellocucumber/example.feature",
-
-        },
-        glue = {},
-        tags = {}
+                "src/test/resources/hellocucumber/example.feature",
+        }
+//        glue = {},
+//        tags = {}
 )
 public class RunCucumberTest {
 }
