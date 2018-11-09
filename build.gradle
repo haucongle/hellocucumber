@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'hellocucumber'
+version = '1.0.0-SNAPSHOT'
+
+description = "Hello Cucumber for Java"
+
+sourceCompatibility = 11
+targetCompatibility = 11
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+
+
+repositories {
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'io.cucumber', name: 'cucumber-jvm', version:'4.2.0'
+    testCompile group: 'io.cucumber', name: 'pro-plugin', version:'2.1.1'
+    testCompile group: 'io.cucumber', name: 'cucumber-java8', version:'4.2.0'
+    testCompile group: 'io.cucumber', name: 'cucumber-junit', version:'4.2.0'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version:'5.3.1'
+}
