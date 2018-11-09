@@ -1,6 +1,5 @@
 package hellocucumber;
 
-import cucumber.api.PendingException;
 import cucumber.api.java8.En;
 import io.cucumber.datatable.DataTable;
 
@@ -30,23 +29,37 @@ public class Stepdefs implements En {
                 assertEquals(expectedAnswer, actualAnswer));
 
         Given("I have {int} cucumber(s) in my belly/stomach", (Integer num) -> {
-            throw new PendingException();
         });
 
         Given("I have {int} \\{what} cucumber(s) in my belly/stomach", (Integer num) -> {
-            throw new PendingException();
         });
 
-        Given("a list of numbers", (DataTable dataTable) -> {
-            this.list = dataTable.asList(Integer.TYPE);
-        });
+        Given("a list of numbers", (DataTable dataTable) ->
+                this.list = dataTable.asList(Integer.TYPE));
 
         When("I summarize them", () -> {
             sum = list.stream().reduce(0, Integer::sum);
         });
 
-        Then("should I get {int}", (Integer sum) -> {
-            assertEquals(this.sum, sum.intValue());
+        Then("should I get {int}", (Integer sum) ->
+                assertEquals(this.sum, sum.intValue()));
+
+        Given("one thing", () -> {
+        });
+
+        Given("another thing", () -> {
+        });
+
+        Given("yet another thing", () -> {
+        });
+
+        When("I open my eyes", () -> {
+        });
+
+        Then("I should see something", () -> {
+        });
+
+        Then("I shouldn't see something else", () -> {
         });
     }
 }
