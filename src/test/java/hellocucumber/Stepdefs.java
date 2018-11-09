@@ -1,6 +1,10 @@
 package hellocucumber;
 
+import cucumber.api.PendingException;
 import cucumber.api.java8.En;
+import io.cucumber.datatable.DataTable;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -9,6 +13,8 @@ public class Stepdefs implements En {
     private String today;
     private String actualAnswer;
     private int budget = 0;
+    private List<Integer> list;
+    private int sum = 0;
 
     public Stepdefs() {
         Given("I have {int} in my wallet", (Integer money) -> budget = money);
@@ -24,11 +30,23 @@ public class Stepdefs implements En {
                 assertEquals(expectedAnswer, actualAnswer));
 
         Given("I have {int} cucumber(s) in my belly/stomach", (Integer num) -> {
-            throw new cucumber.api.PendingException();
+            throw new PendingException();
         });
 
         Given("I have {int} \\{what} cucumber(s) in my belly/stomach", (Integer num) -> {
-            throw new cucumber.api.PendingException();
+            throw new PendingException();
+        });
+
+        Given("a list of numbers", (DataTable dataTable) -> {
+            this.list = dataTable.asList(Integer.TYPE);
+        });
+
+        When("I summarize them", () -> {
+            sum = list.stream().reduce(0, Integer::sum);
+        });
+
+        Then("should I get {int}", (Integer sum) -> {
+            assertEquals(this.sum, sum.intValue());
         });
     }
 }

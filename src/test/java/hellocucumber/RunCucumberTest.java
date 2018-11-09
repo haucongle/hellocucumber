@@ -6,15 +6,15 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"pretty", "io.cucumber.pro.JsonReporter:all"},
+        plugin = {"pretty"},
 //        monochrome = true,
-        dryRun = true,
-        strict = true,
+//        dryRun = true,
+//        strict = true,
         features = {
-                "src/test/resources/hellocucumber",
+//                "src/test/resources/hellocucumber",
 //                "src/test/resources/hellocucumber/is_it_friday_yet.feature",
 //                "src/test/resources/hellocucumber/shopping.feature",
-//                "src/test/resources/hellocucumber/example.feature",
+                "src/test/resources/hellocucumber/example.feature",
         }
 //        glue = {},
 //        tags = {}
