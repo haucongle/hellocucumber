@@ -1,9 +1,8 @@
-# hellocucumber
+# Hello Cucumber
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+<img src="https://github.com/haucongle/hellocucumber/blob/master/cucumber.svg" alt="logo" width="500" height="500">
 
-
-> `#cucumber`, `#cucumber-java8`, `#java 11`
+> `#cucumber`, `#cucumber-java8`, `#BDD`, `#java 11`
 
 ### Installation
 ```sh
