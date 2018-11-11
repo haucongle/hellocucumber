@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"pretty", "json:target/cucumber.json"},
+        plugin = {"pretty"},
 //        monochrome = true,
 //        dryRun = true,
 //        strict = true,
